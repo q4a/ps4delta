@@ -6,6 +6,7 @@ pull_requests:
 skip_tags: true
 
 image:
+- Ubuntu
 - Visual Studio 2019
 
 configuration:
@@ -16,15 +17,32 @@ platform:
 - x64
 #- x86 # by design PS4Delta can't support x86 systems
 
-install:
-- cmd: |
-    git submodule update --init --recursive
-    set QT_DIR=C:\Qt\5.14.0\msvc2017_64
-    pmake.bat
+for:
+-
+  matrix:
+    only:
+      - image: Visual Studio 2019
+  install:
+  - cmd: |
+      git submodule update --init --recursive
+      set QT_DIR=C:\Qt\5.14.0\msvc2017_64
+      pmake.bat
+  build:
+    project: build/PS4Delta.sln
+    parallel: true
+    verbosity: minimal
 
-build:
-  project: build/PS4Delta.sln
-  parallel: true
-  verbosity: minimal
+-
+  matrix:
+    only:
+      - image: Ubuntu
+  install:
+    - git submodule update --init --recursive
+    - export QT_DIR=/usr/lib/x86_64-linux-gnu
+    - chmod +x ./pmake.sh
+    - ./pmake.sh
+  build_script:
+    - cd build
+    - make
 
 test: off
