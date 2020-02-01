@@ -39,6 +39,7 @@ for:
   install:
     - git submodule update --init --recursive
     - export QT_DIR=/usr/lib/x86_64-linux-gnu
+    - chmod +x ./pmake.sh
     - ./pmake.sh
   build_script:
     - cd build
