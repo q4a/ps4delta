@@ -44,10 +44,10 @@ for:
   build_script:
     - cd build
     - sh: |
-      if [ "$CONFIGURATION" = "Release" ]; then
-      make config=release_x64
-      else
-      make config=debug_x64
-      fi
+        if [ "$CONFIGURATION" = "Release" ]; then
+          make config=release_x64
+        else
+          make config=debug_x64
+        fi
 
 test: off
