@@ -6,8 +6,8 @@ pull_requests:
 skip_tags: true
 
 image:
-- Visual Studio 2019
 - Ubuntu
+- Visual Studio 2019
 
 configuration:
 - Release
