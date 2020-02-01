@@ -43,6 +43,6 @@ for:
     - ./pmake.sh
   build_script:
     - cd build
-    - make
+    - if [ "$CONFIGURATION" = "Release" ]; then make config=release_x64 else make config=debug_x64 fi
 
 test: off
