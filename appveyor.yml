@@ -7,7 +7,7 @@ skip_tags: true
 
 image:
 - Ubuntu
-- Visual Studio 2019
+#- Visual Studio 2019
 
 configuration:
 - Release
@@ -43,6 +43,11 @@ for:
     - ./pmake.sh
   build_script:
     - cd build
-    - if [ "$CONFIGURATION" = "Release" ]; then make config=release_x64 else make config=debug_x64 fi
+    - sh: |
+      if [ "$CONFIGURATION" = "Release" ]; then
+      make config=release_x64
+      else
+      make config=debug_x64
+      fi
 
 test: off
