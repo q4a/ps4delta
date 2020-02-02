@@ -23,9 +23,6 @@ workspace "PS4Delta"
     os.mkdir"../build/symbols"
     characterset "Unicode"
     buildoptions "/std:c++17"
-    
-    filter "action:gmake*"
-         toolset "clang"
 
     -- multi threaded compilation
     flags "MultiProcessorCompile"
@@ -44,6 +41,9 @@ workspace "PS4Delta"
         "./shared/Lib",
     }
     
+    filter "system:not windows"
+        toolset "clang"
+
     filter "platforms:x64"
         architecture "x86_64"
 
