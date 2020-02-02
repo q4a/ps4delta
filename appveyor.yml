@@ -23,10 +23,10 @@ for:
     only:
       - image: Visual Studio 2019
   install:
-  - |
-    git submodule update --init --recursive
-    set QT_DIR=C:\Qt\5.14.0\msvc2017_64
-    pmake.bat
+    - |
+      git submodule update --init --recursive
+      set QT_DIR=C:\Qt\5.14.0\msvc2017_64
+      pmake.bat
   build:
     project: build/PS4Delta.sln
     parallel: true
@@ -47,11 +47,11 @@ for:
     - ./pmake.sh
   build_script:
     - cd build
-    - sh: |
-        if [ "$CONFIGURATION" = "Release" ]; then
-          make config=release_x64
-        else
-          make config=debug_x64
-        fi
+    - |
+      if [ "$CONFIGURATION" = "Release" ]; then
+        make config=release_x64
+      else
+        make config=debug_x64
+      fi
 
 test: off
