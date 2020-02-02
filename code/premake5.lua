@@ -41,9 +41,6 @@ workspace "PS4Delta"
         "./shared/Lib",
     }
     
-    filter "system:not windows"
-        toolset "clang"
-
     filter "platforms:x64"
         architecture "x86_64"
 
@@ -74,6 +71,8 @@ workspace "PS4Delta"
             "_SCL_SECURE_NO_WARNINGS",
             "_SCL_SECURE_NO_DEPRECATE"
         }
+    filter "action:gmake*"
+        toolset "clang"
 
     group "core"
     include "delta/host"
