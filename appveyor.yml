@@ -7,7 +7,7 @@ skip_tags: true
 
 image:
 - Ubuntu
-#- Visual Studio 2019
+- Visual Studio 2019
 
 configuration:
 - Release
@@ -23,14 +23,18 @@ for:
     only:
       - image: Visual Studio 2019
   install:
-  - cmd: |
-      git submodule update --init --recursive
-      set QT_DIR=C:\Qt\5.14.0\msvc2017_64
-      pmake.bat
+  - |
+    git submodule update --init --recursive
+    set QT_DIR=C:\Qt\5.14.0\msvc2017_64
+    pmake.bat
   build:
     project: build/PS4Delta.sln
     parallel: true
     verbosity: minimal
+  after_build:
+    - 7z a Artifacts.zip .\bin\*
+  artifacts:
+    - path: Artifacts.zip
 
 -
   matrix:
