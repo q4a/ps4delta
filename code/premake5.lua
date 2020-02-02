@@ -23,6 +23,7 @@ workspace "PS4Delta"
     os.mkdir"../build/symbols"
     characterset "Unicode"
 	buildoptions "/std:c++17"
+	toolset "clang"
 
     -- multi threaded compilation
     flags "MultiProcessorCompile"
