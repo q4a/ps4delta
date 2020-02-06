@@ -43,7 +43,7 @@ for:
   install:
     - |
       git submodule update --init --recursive
-      sudo apt-get update && sudo apt install -y qtbase5-dev libxcursor-dev libxrandr-dev
+      sudo apt-get update && sudo apt install -y qtbase5-dev libxcursor-dev libxrandr-dev libxinerama-dev
       export QT_DIR=/usr/lib/x86_64-linux-gnu
       export QT_INCLUDE=/usr/include/x86_64-linux-gnu/qt5
       chmod +x ./pmake.sh
