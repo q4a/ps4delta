@@ -7,10 +7,10 @@ skip_tags: true
 
 image:
 - Ubuntu
-- Visual Studio 2019
+#- Visual Studio 2019
 
 configuration:
-- Release
+#- Release
 - Debug
 
 platform:
@@ -43,6 +43,16 @@ for:
   install:
     - |
       git submodule update --init --recursive
+      echo "Controller.prototype.ObligationsPageCallback = function()
+      {
+          var page = gui.pageWidgetByObjectName(\"ObligationsPage\");
+          page.obligationsAgreement.setChecked(true);
+          page.completeChanged();
+          gui.clickButton(buttons.NextButton);
+      }" >> inst.qs
+      wget http://master.qt.io/archive/online_installers/3.2/qt-unified-linux-x64-3.2.1-online.run -o qt.run
+      chmod +x qt.run
+      ./qt.run --verbose --script inst.qs
       sudo apt-get update && sudo apt install -y qtbase5-dev libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev
       export QT_DIR=/usr/lib/x86_64-linux-gnu
       export QT_INCLUDE=/usr/include/x86_64-linux-gnu/qt5
