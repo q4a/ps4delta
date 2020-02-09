@@ -49,6 +49,7 @@ for:
       export QT_BIN=/usr/bin
       chmod +x ./pmake.sh
       ./pmake.sh
+      md5sum ./tools/premake/bin/linux/premake5
       ./tools/premake/bin/linux/premake5 --version
   build_script:
     - |
