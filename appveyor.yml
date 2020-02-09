@@ -54,7 +54,7 @@ for:
       cd build
       which moc
       ls
-      cat ./delta_qt.make
+      cat ./delta-qt.make
 #      if [ "$CONFIGURATION" = "Release" ]; then
 #        make config=release
 #      else
