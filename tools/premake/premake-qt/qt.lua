@@ -618,6 +618,8 @@ function premake.extensions.qt.addMOCCustomBuildRule(fcfg, cfg)
 
 	-- handle the command line size limit
 	command = qt.handleCommandLineSizeLimit(cfg, fcfg, command, arguments)
+	print("addMOCCustomBuildRule command, arguments:", command, arguments)
+	print("addMOCCustomBuildRule fcfg.name, output:", fcfg.name, output)
 
 	-- add the custom build rule
 	fcfg.buildmessage	= "Moc'ing " .. fcfg.name

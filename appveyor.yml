@@ -45,15 +45,20 @@ for:
       git submodule update --init --recursive
       export QT_DIR=/usr/lib/x86_64-linux-gnu
       export QT_INCLUDE=/usr/include/x86_64-linux-gnu/qt5
+      export QT_BIN=/usr/bin
       chmod +x ./pmake.sh
       ./pmake.sh
+      ./tools/premake/bin/linux/premake5 --version
   build_script:
     - |
       cd build
-      if [ "$CONFIGURATION" = "Release" ]; then
-        make config=release
-      else
-        make config=debug
-      fi
+      which moc
+      ls
+      cat ./delta_qt.make
+#      if [ "$CONFIGURATION" = "Release" ]; then
+#        make config=release
+#      else
+#        make config=debug
+#      fi
 
 test: off

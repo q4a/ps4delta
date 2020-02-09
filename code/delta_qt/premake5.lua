@@ -85,9 +85,15 @@ project "delta-qt"
         )
     filter "system:not windows"
         removefiles "**.rc"
+        
         local qti = os.getenv("QT_INCLUDE")
         if qti then
             qtincludepath(qti)
+        end
+        
+        local qtbin = os.getenv("QT_BIN")
+        if qtbin then
+            qtbinpath(qtbin)
         end
     filter {}
 
