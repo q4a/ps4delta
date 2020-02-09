@@ -27,6 +27,7 @@ for:
       git submodule update --init --recursive
       set QT_DIR=C:\Qt\5.14.0\msvc2017_64
       pmake.bat
+      type build/delta-qt.vcxproj
   build:
     project: build/PS4Delta.sln
     parallel: true
@@ -55,10 +56,10 @@ for:
       which moc
       ls
       cat ./delta-qt.make
-#      if [ "$CONFIGURATION" = "Release" ]; then
-#        make config=release
-#      else
-#        make config=debug
-#      fi
+      if [ "$CONFIGURATION" = "Release" ]; then
+        make config=release
+      else
+        make config=debug
+      fi
 
 test: off
