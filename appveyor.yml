@@ -44,8 +44,7 @@ for:
   install:
     - |
       git submodule update --init --recursive
-      wget -c http://master.qt.io/archive/online_installers/3.2/qt-unified-linux-x64-3.2.1-online.run -o qt.run
-      chmod +x qt.run
+      wget -c http://master.qt.io/archive/online_installers/3.2/qt-unified-linux-x64-3.2.1-online.run -o qt.run && chmod +x qt.run
       ./qt.run --verbose --script ./tools/install_qt.qs
       sudo apt-get update && sudo apt install -y libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev mesa-common-dev
       ls ~/Qt
