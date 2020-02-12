@@ -18,8 +18,10 @@ platform:
 #- x86 # by design PS4Delta can't support x86 systems
 
 environment:
-  email_address:
+  qt_email:
     secure: J54FJzRIHqrCTjqRjZzFiQ==
+  qt_password:
+    secure: KTGAtqdpX0CeX1iGXIiY7A==
 
 for:
 -
@@ -48,8 +50,7 @@ for:
   install:
     - |
       git submodule update --init --recursive
-      sed 's/email_address/'"$email_address"'/g' ./tools/install_qt.qs > ./tools/install_qt_filled.qs
-      cat ./tools/install_qt_filled.qs
+      cat ../ps4delta/tools/install_qt.qs | sed 's/email_address/'"$qt_email"'/g' | sed 's/your_password/'"$qt_password"'/g' > ../ps4delta/tools/install_qt_filled.qs
       curl -fsS -o qt.run http://master.qt.io/archive/online_installers/3.2/qt-unified-linux-x64-3.2.1-online.run
       chmod +x qt.run
       ./qt.run --script ./tools/install_qt_filled.qs --platform minimal --verbose
