@@ -71,6 +71,7 @@ for:
       ls
       cat ./delta-qt.make
       ~/Qt/5.14.1/gcc_64/bin/uic -o "../code/delta_qt/qtgen/ui_mainwindow.h" "../code/delta_qt/ui/mainwindow.ui"
+      ls -la ../code/delta_qt/qtgen/
       if [ "$CONFIGURATION" = "Release" ]; then
         make config=release
       else
