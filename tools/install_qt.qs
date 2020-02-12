@@ -300,6 +300,11 @@ Controller.prototype.WelcomePageCallback = function() {
 }
 
 Controller.prototype.CredentialsPageCallback = function() {
+// PS4DELTA+
+    var page = gui.pageWidgetByObjectName("CredentialsPage");
+    page.loginWidget.EmailLineEdit.setText("email_address");
+    page.loginWidget.PasswordLineEdit.setText("your_password");
+// PS4DELTA-
     gui.clickButton(buttons.NextButton);
 }
 

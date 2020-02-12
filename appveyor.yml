@@ -17,6 +17,10 @@ platform:
 - x64
 #- x86 # by design PS4Delta can't support x86 systems
 
+environment:
+  email_address:
+    secure: J54FJzRIHqrCTjqRjZzFiQ==
+
 for:
 -
   matrix:
@@ -44,9 +48,11 @@ for:
   install:
     - |
       git submodule update --init --recursive
+      sed 's/email_address/filled_email_address/g' ./tools/install_qt.qs > ./tools/install_qt_filled.qs
+      cat ./tools/install_qt_filled.qs
       curl -fsS -o qt.run http://master.qt.io/archive/online_installers/3.2/qt-unified-linux-x64-3.2.1-online.run
       chmod +x qt.run
-      ./qt.run --script ./tools/install_qt.qs --platform minimal --verbose
+      ./qt.run --script ./tools/install_qt_filled.qs --platform minimal --verbose
       sudo apt-get update && sudo apt install -y libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev mesa-common-dev
       ls ~/Qt
       ls ~/Qt/5.14.1/gcc_64/
