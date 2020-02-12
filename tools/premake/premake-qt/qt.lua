@@ -428,7 +428,7 @@ function premake.extensions.qt.addUICustomBuildRule(fcfg, cfg)
 	end
 
 	-- add the custom build rule
-	fcfg.buildmessage	= "Uic'ing " .. fcfg.name
+	fcfg.buildmessage	= "\"Uic'ing " .. fcfg.name .. "\""
 	fcfg.buildcommands	= { command }
 	fcfg.buildoutputs	= { output }
 
@@ -477,7 +477,7 @@ function premake.extensions.qt.addQRCCustomBuildRule(fcfg, cfg)
 	local inputs = qt.getQRCDependencies(fcfg)
 
 	-- add the custom build rule
-	fcfg.buildmessage	= "Rcc'ing " .. fcfg.name
+	fcfg.buildmessage	= "\"Rcc'ing " .. fcfg.name  .. "\""
 	fcfg.buildcommands	= { command }
 	fcfg.buildoutputs	= { output }
 	if #inputs > 0 then
@@ -618,11 +618,9 @@ function premake.extensions.qt.addMOCCustomBuildRule(fcfg, cfg)
 
 	-- handle the command line size limit
 	command = qt.handleCommandLineSizeLimit(cfg, fcfg, command, arguments)
-	print("addMOCCustomBuildRule command, arguments:", command, arguments)
-	print("addMOCCustomBuildRule fcfg.name, output:", fcfg.name, output)
 
 	-- add the custom build rule
-	fcfg.buildmessage	= "Moc'ing " .. fcfg.name
+	fcfg.buildmessage	= "\"Moc'ing " .. fcfg.name .. "\""
 	fcfg.buildcommands	= { command }
 	fcfg.buildoutputs	= { output }
 
