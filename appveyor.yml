@@ -65,13 +65,17 @@ for:
       ./tools/premake/bin/linux/premake5 --version
   build_script:
     - |
+      echo `pwd`
       cd build
+      echo `pwd`
       ldd ~/Qt/5.14.1/gcc_64/bin/uic
       ldd ~/Qt/5.14.1/gcc_64/bin/moc
+      echo `pwd`
       ls
-      cat ./delta-qt.make
       ~/Qt/5.14.1/gcc_64/bin/uic -o "../code/delta_qt/qtgen/ui_mainwindow.h" "../code/delta_qt/ui/mainwindow.ui"
       ls -la ../code/delta_qt/qtgen/
+      echo `pwd`
+      cat ./delta-qt.make
       if [ "$CONFIGURATION" = "Release" ]; then
         make config=release
       else
