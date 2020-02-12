@@ -50,12 +50,12 @@ for:
   install:
     - |
       git submodule update --init --recursive
-#     cat ../ps4delta/tools/install_qt.qs | sed 's/email_address/'"$qt_email"'/g' | sed 's/your_password/'"$qt_password"'/g' > ../ps4delta/tools/install_qt_filled.qs
-#      curl -fsS -o qt.run http://master.qt.io/archive/online_installers/3.2/qt-unified-linux-x64-3.2.1-online.run
-#      chmod +x qt.run
-#      ./qt.run --script ./tools/install_qt_filled.qs --platform minimal
-#      sudo apt-get update && sudo apt install -y libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev mesa-common-dev
-#      ls ~/Qt/5.14.1/gcc_64/
+      #cat ../ps4delta/tools/install_qt.qs | sed 's/email_address/'"$qt_email"'/g' | sed 's/your_password/'"$qt_password"'/g' > ../ps4delta/tools/install_qt_filled.qs
+      #curl -fsS -o qt.run http://master.qt.io/archive/online_installers/3.2/qt-unified-linux-x64-3.2.1-online.run
+      #chmod +x qt.run
+      #./qt.run --script ./tools/install_qt_filled.qs --platform minimal
+      #sudo apt-get update && sudo apt install -y libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev mesa-common-dev
+      #ls ~/Qt/5.14.1/gcc_64/
       export QT_DIR=~/Qt/5.14.1/gcc_64
       export QT_INCLUDE=~/Qt/5.14.1/gcc_64/include
       export QT_BIN=~/Qt/5.14.1/gcc_64/bin
