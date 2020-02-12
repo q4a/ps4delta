@@ -44,9 +44,15 @@ for:
   install:
     - |
       git submodule update --init --recursive
-      export QT_DIR=/usr/lib/x86_64-linux-gnu
-      export QT_INCLUDE=/usr/include/x86_64-linux-gnu/qt5
-      export QT_BIN=/usr/bin
+      wget -c http://master.qt.io/archive/online_installers/3.2/qt-unified-linux-x64-3.2.1-online.run -o qt.run
+      chmod +x qt.run
+      ./qt.run --verbose --script ./tools/install_qt.qs
+      sudo apt-get update && sudo apt install -y libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev
+      ls ~/Qt
+      ls ~/Qt/5.14.1/gcc_64/
+      export QT_DIR=~/Qt/5.14.1/gcc_64/lib
+      export QT_INCLUDE=~/Qt/5.14.1/gcc_64/include
+      export QT_BIN=~/Qt/5.14.1/gcc_64/bin
       chmod +x ./pmake.sh
       ./pmake.sh
       md5sum ./tools/premake/bin/linux/premake5
