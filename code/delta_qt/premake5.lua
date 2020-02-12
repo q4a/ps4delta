@@ -95,6 +95,11 @@ project "delta-qt"
         if qtbin then
             qtbinpath(qtbin)
         end
+        
+        local qtlib = os.getenv("QT_LIB")
+        if qtlib then
+            qtlibpath(qtlib)
+        end
     filter {}
 
     qtprefix "Qt5"
