@@ -46,7 +46,7 @@ for:
       git submodule update --init --recursive
       curl -fsS -o qt.run http://master.qt.io/archive/online_installers/3.2/qt-unified-linux-x64-3.2.1-online.run
       chmod +x qt.run
-      ./qt.run --verbose --script ./tools/install_qt.qs
+      ./qt.run --script ./tools/install_qt.qs --platform minimal --verbose
       sudo apt-get update && sudo apt install -y libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev mesa-common-dev
       ls ~/Qt
       ls ~/Qt/5.14.1/gcc_64/
