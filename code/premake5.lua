@@ -64,9 +64,9 @@ workspace "PS4Delta"
             "_SCL_SECURE_NO_WARNINGS",
             "_SCL_SECURE_NO_DEPRECATE"
         }
-    filter "action:gmake*"
-        toolset "clang"
-    filter {}
+--    filter "action:gmake*"
+--        toolset "clang"
+--    filter {}
 
     startproject "host"
 
