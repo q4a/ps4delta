@@ -48,7 +48,7 @@ for:
   install:
     - |
       git submodule update --init --recursive
-      sed 's/email_address/filled_email_address/g' ./tools/install_qt.qs > ./tools/install_qt_filled.qs
+      sed 's/email_address/'"$email_address"'/g' ./tools/install_qt.qs > ./tools/install_qt_filled.qs
       cat ./tools/install_qt_filled.qs
       curl -fsS -o qt.run http://master.qt.io/archive/online_installers/3.2/qt-unified-linux-x64-3.2.1-online.run
       chmod +x qt.run
