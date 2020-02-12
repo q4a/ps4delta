@@ -60,25 +60,15 @@ for:
       export QT_INCLUDE=~/Qt/5.14.1/gcc_64/include
       export QT_BIN=~/Qt/5.14.1/gcc_64/bin
       chmod +x ./pmake.sh
-      ./pmake.sh
-      md5sum ./tools/premake/bin/linux/premake5
       ./tools/premake/bin/linux/premake5 --version
+      ./pmake.sh
   build_script:
     - |
-      echo `pwd`
       cd build
       echo `pwd`
-      cd ..
-      echo `pwd`
-      cd code
-      echo `pwd`
-      cd delta_qt
-      echo `pwd`
-      cd qtgen
-      echo `pwd`
       ldd ~/Qt/5.14.1/gcc_64/bin/uic
-      ldd ~/Qt/5.14.1/gcc_64/bin/moc
       echo `pwd`
+      ldd ~/Qt/5.14.1/gcc_64/bin/moc
       ls
       ~/Qt/5.14.1/gcc_64/bin/uic -o "../code/delta_qt/qtgen/ui_mainwindow.h" "../code/delta_qt/ui/mainwindow.ui"
       ls -la ../code/delta_qt/qtgen/
