@@ -47,7 +47,7 @@ for:
       wget -c http://master.qt.io/archive/online_installers/3.2/qt-unified-linux-x64-3.2.1-online.run -o qt.run
       chmod +x qt.run
       ./qt.run --verbose --script ./tools/install_qt.qs
-      sudo apt-get update && sudo apt install -y libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev
+      sudo apt-get update && sudo apt install -y libxcursor-dev libxrandr-dev libxinerama-dev libxi-dev mesa-common-dev
       ls ~/Qt
       ls ~/Qt/5.14.1/gcc_64/
       export QT_DIR=~/Qt/5.14.1/gcc_64/lib
